@@ -10,7 +10,6 @@ type Benefit struct {
 	Attributes    BenefitAttributes `json:"attributes"`
 	Relationships struct {
 		Campaign              *CampaignRelationship     `json:"campaign,omitempty"`
-		CampaignInstallations interface{}               `json:"campaign_installation"` // I don't know what this is.. Couldn't find any docs / examples
 		Deliverables          *DeliverablesRelationship `json:"deliverables,omitempty"`
 		Tiers                 *TiersRelationship        `json:"tiers,omitempty"`
 	} `json:"relationships"`

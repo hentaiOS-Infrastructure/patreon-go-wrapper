@@ -1,7 +1,5 @@
 package patreon
 
-import "time"
-
 // RewardFields is all fields in the Reward Attributes struct
 var RewardFields = getObjectFields(Reward{}.Attributes)
 
@@ -16,30 +14,26 @@ type Reward struct {
 }
 
 type RewardAttributes struct {
-	Amount               int         `json:"amount"`
-	AmountCents          int         `json:"amount_cents"`
-	CreatedAt            time.Time   `json:"created_at"`
-	Currency             string      `json:"currency"`
-	DeclinedPatronCount  int         `json:"declined_patron_count"`
-	Description          string      `json:"description"`
-	DiscordRoleIds       interface{} `json:"discord_role_ids"`
-	EditedAt             time.Time   `json:"edited_at"`
-	ImageURL             interface{} `json:"image_url"`
-	IsFreeTier           bool        `json:"is_free_tier"`
-	PatronAmountCents    int         `json:"patron_amount_cents"`
-	PatronCount          int         `json:"patron_count"`
-	PatronCurrency       string      `json:"patron_currency"`
-	PostCount            int         `json:"post_count"`
-	Published            bool        `json:"published"`
-	PublishedAt          time.Time   `json:"published_at"`
-	Remaining            interface{} `json:"remaining"`
-	RequiresShipping     bool        `json:"requires_shipping"`
-	Title                string      `json:"title"`
-	UnpublishedAt        interface{} `json:"unpublished_at"`
-	URL                  string      `json:"url"`
-	UserLimit            interface{} `json:"user_limit"`
-	WelcomeMessage       interface{} `json:"welcome_message"`
-	WelcomeMessageUnsafe interface{} `json:"welcome_message_unsafe"`
-	WelcomeVideoEmbed    interface{} `json:"welcome_video_embed"`
-	WelcomeVideoURL      interface{} `json:"welcome_video_url"`
+	Amount              int         `json:"amount"`
+	AmountCents         int         `json:"amount_cents"`
+	CreatedAt           NullTime    `json:"created_at"`
+	Currency            string      `json:"currency"`
+	DeclinedPatronCount int         `json:"declined_patron_count"`
+	Description         string      `json:"description"`
+	DiscordRoleIds      interface{} `json:"discord_role_ids"`
+	EditedAt            NullTime    `json:"edited_at"`
+	ImageURL            interface{} `json:"image_url"`
+	IsFreeTier          bool        `json:"is_free_tier"`
+	PatronAmountCents   int         `json:"patron_amount_cents"`
+	PatronCount         int         `json:"patron_count"`
+	PatronCurrency      string      `json:"patron_currency"`
+	PostCount           int         `json:"post_count"`
+	Published           bool        `json:"published"`
+	PublishedAt         NullTime    `json:"published_at"`
+	Remaining           interface{} `json:"remaining"`
+	RequiresShipping    bool        `json:"requires_shipping"`
+	Title               string      `json:"title"`
+	UnpublishedAt       interface{} `json:"unpublished_at"`
+	URL                 string      `json:"url"`
+	UserLimit           interface{} `json:"user_limit"`
 }

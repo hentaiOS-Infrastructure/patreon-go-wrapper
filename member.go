@@ -41,6 +41,23 @@ type MemberAttributes struct {
 	WillPayAmountCents           int      `json:"will_pay_amount_cents"`
 }
 
+type WebhookMemberAttributes struct {
+	AccessExpiresAt              interface{} `json:"access_expires_at"`
+	CampaignCurrency             string      `json:"campaign_currency"`
+	CampaignLifetimeSupportCents int         `json:"campaign_lifetime_support_cents"`
+	CampaignPledgeAmountCents    int         `json:"campaign_pledge_amount_cents"`
+	FullName                     string      `json:"full_name"`
+	IsFollower                   bool        `json:"is_follower"`
+	IsFreeMember                 interface{} `json:"is_free_member"`
+	IsFreeTrial                  interface{} `json:"is_free_trial"`
+	LastChargeDate               NullTime   `json:"last_charge_date"`
+	LastChargeStatus             string      `json:"last_charge_status"`
+	LifetimeSupportCents         int         `json:"lifetime_support_cents"`
+	PatronStatus                 string      `json:"patron_status"`
+	PledgeAmountCents            int         `json:"pledge_amount_cents"`
+	PledgeRelationshipStart      NullTime   `json:"pledge_relationship_start"`
+}
+
 // MemberResponse wraps Patreon's fetch benefit API response
 type MemberResponse struct {
 	Data     Member   `json:"data"`
