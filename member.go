@@ -57,7 +57,7 @@ type WebhookMember struct {
 // WebhookMemberAttributes is the attributes struct for Member
 // returned by Webhook
 type WebhookMemberAttributes struct {
-	AccessExpiresAt              interface{} `json:"access_expires_at"`
+	AccessExpiresAt              NullTime    `json:"access_expires_at"`
 	CampaignCurrency             string      `json:"campaign_currency"`
 	CampaignLifetimeSupportCents int         `json:"campaign_lifetime_support_cents"`
 	CampaignPledgeAmountCents    int         `json:"campaign_pledge_amount_cents"`
