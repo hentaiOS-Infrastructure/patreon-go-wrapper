@@ -56,6 +56,8 @@ func (i *Includes) UnmarshalJSON(b []byte) error {
 			obj = &Webhook{}
 		} else if s.Type == "deliverable" {
 			obj = &Deliverable{}
+		} else if s.Type == "reward" {
+			obj = &Reward{}
 		} else {
 			return fmt.Errorf("unsupported type '%s'", s.Type)
 		}

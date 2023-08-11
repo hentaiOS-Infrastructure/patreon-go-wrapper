@@ -1,11 +1,5 @@
 package patreon
 
-import (
-	"crypto/hmac"
-	"crypto/md5"
-	"encoding/hex"
-)
-
 const (
 	// MemberCreate specifies a create pledge event
 	MemberCreate = "members:create"
@@ -26,13 +20,6 @@ const (
 	MemberDeletePledge = "members:pledge:delete"
 )
 
-const (
-	// HeaderEventType specifies an event type HTTP header name
-	HeaderEventType = "X-Patreon-Event"
-
-	// HeaderEventSignature specifies message signature HTTP header name to verify message body
-	HeaderSignature = "X-Patreon-Signature"
-)
 
 var (
 	// WebhookDefaultIncludes specifies default includes for Webhook.
@@ -41,19 +28,6 @@ var (
 	// WebhookFields is all fields in the Webhook Attributes struct
 	WebhookFields = getObjectFields(Webhook{}.Attributes)
 )
-
-// VerifySignature verifies the sender of the message
-func VerifySignature(message []byte, secret string, signature string) (bool, error) {
-	hash := hmac.New(md5.New, []byte(secret))
-	if _, err := hash.Write(message); err != nil {
-		return false, err
-	}
-
-	sum := hash.Sum(nil)
-	expectedSignature := hex.EncodeToString(sum)
-
-	return expectedSignature == signature, nil
-}
 
 // Webhook is fired based on events happening on a particular campaign.
 type Webhook struct {
