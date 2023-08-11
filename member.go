@@ -41,6 +41,21 @@ type MemberAttributes struct {
 	WillPayAmountCents           int      `json:"will_pay_amount_cents"`
 }
 
+// WebhookMember is the record of a user's membership to a campaign.
+// Remains consistent across months of pledging.
+type WebhookMember struct {
+	Type          string                  `json:"type"`
+	ID            string                  `json:"id"`
+	Attributes    WebhookMemberAttributes `json:"attributes"`
+	Relationships struct {
+		Address  *AddressRelationship  `json:"address,omitempty"`
+		Campaign *CampaignRelationship `json:"campaign,omitempty"`
+		User     *UserRelationship     `json:"user,omitempty"`
+	} `json:"relationships"`
+}
+
+// WebhookMemberAttributes is the attributes struct for Member
+// returned by Webhook
 type WebhookMemberAttributes struct {
 	AccessExpiresAt              interface{} `json:"access_expires_at"`
 	CampaignCurrency             string      `json:"campaign_currency"`
@@ -50,12 +65,12 @@ type WebhookMemberAttributes struct {
 	IsFollower                   bool        `json:"is_follower"`
 	IsFreeMember                 interface{} `json:"is_free_member"`
 	IsFreeTrial                  interface{} `json:"is_free_trial"`
-	LastChargeDate               NullTime   `json:"last_charge_date"`
+	LastChargeDate               NullTime    `json:"last_charge_date"`
 	LastChargeStatus             string      `json:"last_charge_status"`
 	LifetimeSupportCents         int         `json:"lifetime_support_cents"`
 	PatronStatus                 string      `json:"patron_status"`
 	PledgeAmountCents            int         `json:"pledge_amount_cents"`
-	PledgeRelationshipStart      NullTime   `json:"pledge_relationship_start"`
+	PledgeRelationshipStart      NullTime    `json:"pledge_relationship_start"`
 }
 
 // MemberResponse wraps Patreon's fetch benefit API response
