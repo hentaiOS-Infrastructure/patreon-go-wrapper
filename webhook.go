@@ -7,14 +7,23 @@ import (
 )
 
 const (
-	// EventCreatePledge specifies a create pledge event
-	EventCreatePledge = "pledges:create"
+	// MemberCreate specifies a create pledge event
+	MemberCreate = "members:create"
 
-	// EventUpdatePledge specifies an update pledge event
-	EventUpdatePledge = "pledges:update"
+	// MemberUpdate specifies an update pledge event
+	MemberUpdate = "members:update"
 
-	// EventDeletePledge specifies a delete pledge event
-	EventDeletePledge = "pledges:delete"
+	// MemberDelete specifies a delete pledge event
+	MemberDelete = "members:delete"
+
+	// MemberCreatePledge specifies a create pledge event
+	MemberCreatePledge = "members:pledge:create"
+
+	// MemberUpdatePledge specifies an update pledge event
+	MemberUpdatePledge = "members:pledge:update"
+
+	// MemberDeletePledge specifies a delete pledge event
+	MemberDeletePledge = "members:pledge:delete"
 )
 
 const (
