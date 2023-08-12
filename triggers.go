@@ -16,11 +16,17 @@ const (
 
 var (
 	// WebhookTriggersDefaultIncludes specifies default includes for Webhook.
-	WebhookTriggersDefaultIncludes = []string{"campaign", "user", "reward"}
+	WebhookTriggersDefaultIncludes = []string{"campaign", "user"}
+
+	// TestWebhookTriggersDefaultIncludes specifies default includes for Webhook.
+	TestWebhookTriggersDefaultIncludes = []string{"campaign", "user", "reward"}
 
 	// WebhookTriggersFields is all fields in the Webhook Attributes struct
 	// WebhookTriggers is pretty much Member Attributes.
-	WebhookTriggersFields = getObjectFields(WebhookMember{}.Attributes)
+	WebhookTriggersFields = getObjectFields(LiveWebhookMember{}.Attributes)
+
+	// TestWebhookTriggersFields is all fields in the Test Webhook struct
+	TestWebhookTriggersFields = getObjectFields(TestWebhookMember{}.Attributes)
 )
 
 // VerifySignature verifies the sender of the message
@@ -37,6 +43,6 @@ func VerifySignature(message []byte, secret string, signature string) (bool, err
 }
 
 type WebhookTriggersResponse struct {
-	Data     WebhookMember `json:"data"`
-	Included Includes      `json:"included"`
+	Data     LiveWebhookMember `json:"data"`
+	Included Includes          `json:"included"`
 }

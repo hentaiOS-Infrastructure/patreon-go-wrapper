@@ -41,12 +41,26 @@ type MemberAttributes struct {
 	WillPayAmountCents           int      `json:"will_pay_amount_cents"`
 }
 
-// WebhookMember is the record of a user's membership to a campaign.
-// Remains consistent across months of pledging.
-type WebhookMember struct {
-	Type          string                  `json:"type"`
-	ID            string                  `json:"id"`
-	Attributes    WebhookMemberAttributes `json:"attributes"`
+// LiveWebhookMember is the record of a user's membership to a campaign.
+// Remains consistent, only returned by Webhook test.
+type LiveWebhookMember struct {
+	Type          string           `json:"type"`
+	ID            string           `json:"id"`
+	Attributes    MemberAttributes `json:"attributes"`
+	Relationships struct {
+		Address                *AddressRelationship  `json:"address,omitempty"`
+		Campaign               *CampaignRelationship `json:"campaign,omitempty"`
+		CurrentlyEntitledTiers *TiersRelationship    `json:"currently_entitled_tiers,omitempty"`
+		User                   *UserRelationship     `json:"user,omitempty"`
+	} `json:"relationships"`
+}
+
+// TestWebhookMember is the record of a user's membership to a campaign.
+// Remains consistent, only returned by Webhook test.
+type TestWebhookMember struct {
+	Type          string                      `json:"type"`
+	ID            string                      `json:"id"`
+	Attributes    TestWebhookMemberAttributes `json:"attributes"`
 	Relationships struct {
 		Address  *AddressRelationship  `json:"address,omitempty"`
 		Campaign *CampaignRelationship `json:"campaign,omitempty"`
@@ -54,9 +68,9 @@ type WebhookMember struct {
 	} `json:"relationships"`
 }
 
-// WebhookMemberAttributes is the attributes struct for Member
-// returned by Webhook
-type WebhookMemberAttributes struct {
+// TestWebhookMemberAttributes is the attributes struct for Member
+// returned by Webhook Test
+type TestWebhookMemberAttributes struct {
 	AccessExpiresAt              NullTime    `json:"access_expires_at"`
 	CampaignCurrency             string      `json:"campaign_currency"`
 	CampaignLifetimeSupportCents int         `json:"campaign_lifetime_support_cents"`
