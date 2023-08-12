@@ -26,27 +26,19 @@ type CampaignAttributes struct {
 	CreatedAt            NullTime    `json:"created_at"`
 	CreationName         string      `json:"creation_name"`
 	DiscordServerID      interface{} `json:"discord_server_id"`
-	DisplayPatronGoals   bool        `json:"display_patron_goals"`
-	EarningsVisibility   string      `json:"earnings_visibility"`
 	GoogleAnalyticsID    string      `json:"google_analytics_id"`
 	HasRSS               bool        `json:"has_rss"`
 	HasSentRSSNotify     bool        `json:"has_sent_rss_notify"`
 	ImageSmallURL        string      `json:"image_small_url"`
 	ImageURL             string      `json:"image_url"`
 	IsChargedImmediately bool        `json:"is_charged_immediately"`
-	IsChargeUpfront      bool        `json:"is_charge_upfront"`
 	IsMonthly            bool        `json:"is_monthly"`
 	IsNsfw               bool        `json:"is_nsfw"`
-	IsPlural             bool        `json:"is_plural"`
 	MainVideoEmbed       string      `json:"main_video_embed"`
 	MainVideoURL         string      `json:"main_video_url"`
-	Name                 string      `json:"name"`
 	OneLiner             string      `json:"one_liner"`
-	PaidMemberCount      int         `json:"paid_member_count"`
 	PatronCount          int         `json:"patron_count"`
 	PayPerName           string      `json:"pay_per_name"`
-	PledgeSum            int         `json:"pledge_sum"`
-	PledgeSumCurrency    string      `json:"pledge_sum_currency"`
 	PledgeURL            string      `json:"pledge_url"`
 	PublishedAt          NullTime    `json:"published_at"`
 	RSSArtworkURL        bool        `json:"rss_artwork_url"`
