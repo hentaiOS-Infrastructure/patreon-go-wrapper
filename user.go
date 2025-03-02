@@ -21,21 +21,24 @@ type User struct {
 
 // UserAttributes is the attributes struct for User
 type UserAttributes struct {
-	About             string      `json:"about"`
-	CanSeeNSFW        bool        `json:"can_see_nsfw"`
-	Created           NullTime    `json:"created"`
-	Email             string      `json:"email"`
-	FirstName         string      `json:"first_name"`
-	FullName          string      `json:"full_name"`
-	HidePledges       bool        `json:"hide_pledges"`
-	ImageURL          string      `json:"image_url"`
-	IsEmailVerified   bool        `json:"is_email_verified"`
-	LastName          string      `json:"last_name"`
-	LikeCount         int         `json:"like_count"`
-	SocialConnections interface{} `json:"social_connections"`
-	ThumbURL          string      `json:"thumb_url"`
-	URL               string      `json:"url"`
-	Vanity            string      `json:"vanity"`
+	About             string   `json:"about"`
+	CanSeeNSFW        bool     `json:"can_see_nsfw"`
+	Created           NullTime `json:"created"`
+	Email             string   `json:"email"`
+	FirstName         string   `json:"first_name"`
+	FullName          string   `json:"full_name"`
+	HidePledges       bool     `json:"hide_pledges"`
+	ImageURL          string   `json:"image_url"`
+	IsEmailVerified   bool     `json:"is_email_verified"`
+	LastName          string   `json:"last_name"`
+	LikeCount         int      `json:"like_count"`
+	ThumbURL          string   `json:"thumb_url"`
+	URL               string   `json:"url"`
+	Vanity            string   `json:"vanity"`
+	SocialConnections map[string]struct {
+		URL    string `json:"url"`
+		UserID string `json:"user_id"`
+	} `json:"social_connections"`
 }
 
 // UserResponse wraps Patreon's fetch user API response

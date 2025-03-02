@@ -34,7 +34,8 @@ func TestFetchMember(t *testing.T) {
 	// require.NotEmpty(t, attrs.ImageSmallURL)
 	require.NotEmpty(t, attrs.LastChargeDate)
 	require.False(t, attrs.IsFollower)
-	// require.Equal(t, 123121, attrs.PatronCount)
+	require.False(t, attrs.IsFreeTrial)
+	require.False(t, attrs.IsGifted)
 	// require.Equal(t, "month", attrs.PayPerName)
 	// require.NotEmpty(t, attrs.Summary)
 	// require.NotEmpty(t, attrs.PledgeURL)
@@ -55,7 +56,9 @@ const fetchMemberResp = `
       "attributes": {
         "full_name": "first last",
         "is_follower": false,
-        "last_charge_date": "2020-10-01T11:18:36.000+00:00"
+        "last_charge_date": "2020-10-01T11:18:36.000+00:00",
+        "is_free_trial": false,
+        "is_gifted": false
       },
       "id": "123-456-789",
       "relationships": {
@@ -96,6 +99,6 @@ const fetchMemberResp = `
       "self": "https://www.patreon.com/api/oauth2/v2/members/123-456-789"
     }
   }
-  
-  
+
+
 `

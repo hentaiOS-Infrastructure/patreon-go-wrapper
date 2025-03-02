@@ -30,6 +30,8 @@ type MemberAttributes struct {
 	Email                        string   `json:"email"`
 	FullName                     string   `json:"full_name"`
 	IsFollower                   bool     `json:"is_follower"`
+	IsFreeTrial                  bool     `json:"is_free_trial"`
+	IsGifted                     bool     `json:"is_gifted"`
 	LastChargeDate               NullTime `json:"last_charge_date"`
 	LastChargeStatus             string   `json:"last_charge_status"`
 	LifetimeSupportCents         int      `json:"lifetime_support_cents"`
